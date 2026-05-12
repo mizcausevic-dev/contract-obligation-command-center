@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API Summary</title>
+  <style>
+    :root {
+      --bg: #09121d;
+      --panel: #122436;
+      --line: #2d4a67;
+      --text: #edf2f8;
+      --muted: #9ab1c8;
+      --accent: #8ecbff;
+      --warn: #ffc97e;
+      --danger: #ff8c88;
+      --ok: #9ad5a8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(105, 150, 210, 0.16), transparent 26%),
+        linear-gradient(180deg, #06111b 0%, #0a1521 100%);
+      color: var(--text);
+      font-family: "Segoe UI", Inter, sans-serif;
+    }
+    .page { max-width: 1420px; margin: 0 auto; padding: 56px; }
+    .frame {
+      border: 1px solid rgba(142, 203, 255, 0.14);
+      border-radius: 34px;
+      background: rgba(5, 13, 23, 0.76);
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    }
+    .nav { display:flex; gap:12px; justify-content:flex-end; margin-bottom:14px; }
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      border: 1px solid rgba(142, 203, 255, 0.18);
+      background: rgba(18, 36, 54, 0.9);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .hero {
+      border: 1px solid rgba(142, 203, 255, 0.15);
+      border-radius: 28px;
+      padding: 34px;
+      background: linear-gradient(160deg, rgba(18,36,54,0.98), rgba(10,22,35,0.96));
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 64px;
+      line-height: 0.95;
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 980px;
+    }
+    .body {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      max-width: 980px;
+      line-height: 1.4;
+    }
+    .metrics {
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .metric, .card {
+      border-radius: 22px;
+      background: rgba(18,36,54,0.96);
+      border: 1px solid rgba(142, 203, 255, 0.14);
+      padding: 24px;
+    }
+    .label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .value {
+      font-size: 46px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .sub, .copy {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .span-4 { grid-column: span 4; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    .row {
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(142, 203, 255, 0.1);
+    }
+    .row:first-of-type { border-top: 0; padding-top: 0; }
+    .title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .lane {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      height: fit-content;
+    }
+    .lane.escalate { background: rgba(255, 140, 136, 0.14); color: var(--danger); }
+    .lane.watch { background: rgba(255, 201, 126, 0.14); color: var(--warn); }
+    .lane.clear { background: rgba(154, 213, 168, 0.14); color: var(--ok); }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #d6e8ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="frame">
+      <div class="nav">
+        <div class="pill">Overview</div>
+        <div class="pill">Queue</div>
+        <div class="pill">Obligations</div>
+        <div class="pill">API summary</div>
+      </div>
+      <section class="hero">
+        <div class="eyebrow">API Summary</div>
+        <h1>The same legal-ops layer can feed review queues, portfolio reporting, and audit evidence.</h1>
+        <p class="body">This keeps downstream systems aligned on the same contract risk story instead of rebuilding it separately in BI, CRM, and intake tools.</p>
+      </section>
+      <section class="card span-12"><div class="label">sample payload</div><pre>{'dashboard': {'agreementCount': 4, 'criticalCount': 1, 'watchCount': 2, 'obligationCount': 3, 'averageRiskScore': 65.2, 'averageWindowDays': 32, 'leadRecommendation': 'Pull privacy, compliance, and finance blockers into a single weekly obligation review lane.'}, 'agreements': [{'contractId': 'ctr-1004', 'counterparty': 'HelioGrid Systems', 'agreementType': 'Master Services Agreement', 'ownerLane': 'Legal ops', 'renewalDate': '2026-06-09', 'obligationWindowDays': 11, 'riskScore': 93, 'obligationStatus': 'security exhibit update overdue', 'approvalBlocker': 'redlines stalled with privacy counsel', 'commercialExposure': 'renewal and expansion risk', 'nextAction': 'Escalate privacy review and align the security exhibit before renewal committee lock.', 'escalationState': 'critical', 'noticeRequiredDays': 30, 'jurisdiction': 'Delaware', 'valueBand': '$2.8M ARR', 'lane': 'escalate'}, {'contractId': 'ctr-2038', 'counterparty': 'Beacon Harbor Health', 'agreementType': 'Business Associate Agreement', 'ownerLane': 'Compliance', 'renewalDate': '2026-07-02', 'obligationWindowDays': 22, 'riskScore': 76, 'obligationStatus': 'subprocessor schedule pending', 'approvalBlocker': 'vendor security questionnaire incomplete', 'commercialExposure': 'implementation delay', 'nextAction': 'Push the vendor questionnaire owner and freeze the subprocessor schedule until evidence arrives.', 'escalationState': 'high', 'noticeRequiredDays': 45, 'jurisdiction': 'Massachusetts', 'valueBand': '$1.1M annual contract', 'lane': 'watch'}, {'contractId': 'ctr-3117', 'counterparty': 'Atlas Procurement Group', 'agreementType': 'Procurement Framework', 'ownerLane': 'Procurement ops', 'renewalDate': '2026-08-18', 'obligationWindowDays': 37, 'riskScore': 58, 'obligationStatus': 'service-credit clause review in progress', 'approvalBlocker': 'finance sign-off pending', 'commercialExposure': 'margin pressure if service credits expand', 'nextAction': 'Route service-credit analysis to finance and lock the approval lane before the next redline round.', 'escalationState': 'watch', 'noticeRequiredDays': 60, 'jurisdiction': 'New York', 'valueBand': '$640K services', 'lane': 'watch'}], 'obligations': [{'obligationId': 'obl-7001', 'contractId': 'ctr-1004', 'title': 'Security exhibit refresh', 'severity': 'critical', 'daysToDeadline': -3, 'owner': 'Privacy counsel', 'trigger': 'annual control update', 'recommendedAction': 'supervisor escalation', 'counterparty': 'HelioGrid Systems', 'agreementType': 'Master Services Agreement', 'lane': 'escalate'}, {'obligationId': 'obl-7002', 'contractId': 'ctr-2038', 'title': 'Subprocessor disclosure schedule', 'severity': 'high', 'daysToDeadline': 5, 'owner': 'Compliance manager', 'trigger': 'pre-renewal evidence gate', 'recommendedAction': 'vendor evidence chase', 'counterparty': 'Beacon Harbor Health', 'agreementType': 'Business Associate Agreement', 'lane': 'watch'}, {'obligationId': 'obl-7003', 'contractId': 'ctr-3117', 'title': 'Service-credit analysis', 'severity': 'medium', 'daysToDeadline': 12, 'owner': 'Finance business partner', 'trigger': 'margin review', 'recommendedAction': 'finance sign-off', 'counterparty': 'Atlas Procurement Group', 'agreementType': 'Procurement Framework', 'lane': 'watch'}]}</pre></section>
+    </div>
+  </div>
+</body>
+</html>

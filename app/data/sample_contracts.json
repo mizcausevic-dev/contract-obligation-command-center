@@ -1,0 +1,106 @@
+{
+  "portfolioName": "Northbridge Commercial Agreements",
+  "industry": "Enterprise SaaS and Services",
+  "agreements": [
+    {
+      "contractId": "ctr-1004",
+      "counterparty": "HelioGrid Systems",
+      "agreementType": "Master Services Agreement",
+      "ownerLane": "Legal ops",
+      "renewalDate": "2026-06-09",
+      "obligationWindowDays": 11,
+      "riskScore": 93,
+      "obligationStatus": "security exhibit update overdue",
+      "approvalBlocker": "redlines stalled with privacy counsel",
+      "commercialExposure": "renewal and expansion risk",
+      "nextAction": "Escalate privacy review and align the security exhibit before renewal committee lock.",
+      "escalationState": "critical",
+      "noticeRequiredDays": 30,
+      "jurisdiction": "Delaware",
+      "valueBand": "$2.8M ARR"
+    },
+    {
+      "contractId": "ctr-2038",
+      "counterparty": "Beacon Harbor Health",
+      "agreementType": "Business Associate Agreement",
+      "ownerLane": "Compliance",
+      "renewalDate": "2026-07-02",
+      "obligationWindowDays": 22,
+      "riskScore": 76,
+      "obligationStatus": "subprocessor schedule pending",
+      "approvalBlocker": "vendor security questionnaire incomplete",
+      "commercialExposure": "implementation delay",
+      "nextAction": "Push the vendor questionnaire owner and freeze the subprocessor schedule until evidence arrives.",
+      "escalationState": "high",
+      "noticeRequiredDays": 45,
+      "jurisdiction": "Massachusetts",
+      "valueBand": "$1.1M annual contract"
+    },
+    {
+      "contractId": "ctr-3117",
+      "counterparty": "Atlas Procurement Group",
+      "agreementType": "Procurement Framework",
+      "ownerLane": "Procurement ops",
+      "renewalDate": "2026-08-18",
+      "obligationWindowDays": 37,
+      "riskScore": 58,
+      "obligationStatus": "service-credit clause review in progress",
+      "approvalBlocker": "finance sign-off pending",
+      "commercialExposure": "margin pressure if service credits expand",
+      "nextAction": "Route service-credit analysis to finance and lock the approval lane before the next redline round.",
+      "escalationState": "watch",
+      "noticeRequiredDays": 60,
+      "jurisdiction": "New York",
+      "valueBand": "$640K services"
+    },
+    {
+      "contractId": "ctr-4185",
+      "counterparty": "Silverline Media",
+      "agreementType": "Marketing Partnership Agreement",
+      "ownerLane": "Business affairs",
+      "renewalDate": "2026-09-27",
+      "obligationWindowDays": 58,
+      "riskScore": 34,
+      "obligationStatus": "on track",
+      "approvalBlocker": "none",
+      "commercialExposure": "low",
+      "nextAction": "Maintain reminder cadence and package the renewal memo two weeks before notice threshold.",
+      "escalationState": "clear",
+      "noticeRequiredDays": 45,
+      "jurisdiction": "California",
+      "valueBand": "$220K sponsorship"
+    }
+  ],
+  "obligations": [
+    {
+      "obligationId": "obl-7001",
+      "contractId": "ctr-1004",
+      "title": "Security exhibit refresh",
+      "severity": "critical",
+      "daysToDeadline": -3,
+      "owner": "Privacy counsel",
+      "trigger": "annual control update",
+      "recommendedAction": "supervisor escalation"
+    },
+    {
+      "obligationId": "obl-7002",
+      "contractId": "ctr-2038",
+      "title": "Subprocessor disclosure schedule",
+      "severity": "high",
+      "daysToDeadline": 5,
+      "owner": "Compliance manager",
+      "trigger": "pre-renewal evidence gate",
+      "recommendedAction": "vendor evidence chase"
+    },
+    {
+      "obligationId": "obl-7003",
+      "contractId": "ctr-3117",
+      "title": "Service-credit analysis",
+      "severity": "medium",
+      "daysToDeadline": 12,
+      "owner": "Finance business partner",
+      "trigger": "margin review",
+      "recommendedAction": "finance sign-off"
+    }
+  ]
+}

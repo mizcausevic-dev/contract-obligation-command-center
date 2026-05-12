@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obligation Board</title>
+  <style>
+    :root {
+      --bg: #09121d;
+      --panel: #122436;
+      --line: #2d4a67;
+      --text: #edf2f8;
+      --muted: #9ab1c8;
+      --accent: #8ecbff;
+      --warn: #ffc97e;
+      --danger: #ff8c88;
+      --ok: #9ad5a8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(105, 150, 210, 0.16), transparent 26%),
+        linear-gradient(180deg, #06111b 0%, #0a1521 100%);
+      color: var(--text);
+      font-family: "Segoe UI", Inter, sans-serif;
+    }
+    .page { max-width: 1420px; margin: 0 auto; padding: 56px; }
+    .frame {
+      border: 1px solid rgba(142, 203, 255, 0.14);
+      border-radius: 34px;
+      background: rgba(5, 13, 23, 0.76);
+      padding: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    }
+    .nav { display:flex; gap:12px; justify-content:flex-end; margin-bottom:14px; }
+    .pill {
+      border-radius: 999px;
+      padding: 10px 16px;
+      border: 1px solid rgba(142, 203, 255, 0.18);
+      background: rgba(18, 36, 54, 0.9);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .hero {
+      border: 1px solid rgba(142, 203, 255, 0.15);
+      border-radius: 28px;
+      padding: 34px;
+      background: linear-gradient(160deg, rgba(18,36,54,0.98), rgba(10,22,35,0.96));
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 64px;
+      line-height: 0.95;
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 980px;
+    }
+    .body {
+      margin: 0;
+      color: var(--muted);
+      font-size: 25px;
+      max-width: 980px;
+      line-height: 1.4;
+    }
+    .metrics {
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .metric, .card {
+      border-radius: 22px;
+      background: rgba(18,36,54,0.96);
+      border: 1px solid rgba(142, 203, 255, 0.14);
+      padding: 24px;
+    }
+    .label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .value {
+      font-size: 46px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .sub, .copy {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .span-4 { grid-column: span 4; }
+    .span-8 { grid-column: span 8; }
+    .span-12 { grid-column: span 12; }
+    .row {
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(142, 203, 255, 0.1);
+    }
+    .row:first-of-type { border-top: 0; padding-top: 0; }
+    .title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .lane {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      height: fit-content;
+    }
+    .lane.escalate { background: rgba(255, 140, 136, 0.14); color: var(--danger); }
+    .lane.watch { background: rgba(255, 201, 126, 0.14); color: var(--warn); }
+    .lane.clear { background: rgba(154, 213, 168, 0.14); color: var(--ok); }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #d6e8ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="frame">
+      <div class="nav">
+        <div class="pill">Overview</div>
+        <div class="pill">Queue</div>
+        <div class="pill">Obligations</div>
+        <div class="pill">API summary</div>
+      </div>
+      <section class="hero">
+        <div class="eyebrow">Obligation Board</div>
+        <h1>The clause is only part of the story. The handoff around it is where risk usually lives.</h1>
+        <p class="body">Each obligation carries severity, timing, and ownership context so the team can see what must move next.</p>
+      </section>
+      <section class="grid">
+        <div class="card span-4">
+          <div class="label">critical obligation</div>
+          <div class="title">Security exhibit refresh</div>
+          <div class="copy">HelioGrid Systems · Master Services Agreement</div>
+          <div class="copy">Owner: Privacy counsel · Deadline window -3 days</div>
+          <div class="copy">Trigger: annual control update</div>
+        </div>
+        
+        <div class="card span-4">
+          <div class="label">high obligation</div>
+          <div class="title">Subprocessor disclosure schedule</div>
+          <div class="copy">Beacon Harbor Health · Business Associate Agreement</div>
+          <div class="copy">Owner: Compliance manager · Deadline window 5 days</div>
+          <div class="copy">Trigger: pre-renewal evidence gate</div>
+        </div>
+        
+        <div class="card span-4">
+          <div class="label">medium obligation</div>
+          <div class="title">Service-credit analysis</div>
+          <div class="copy">Atlas Procurement Group · Procurement Framework</div>
+          <div class="copy">Owner: Finance business partner · Deadline window 12 days</div>
+          <div class="copy">Trigger: margin review</div>
+        </div>
+        </section>
+    </div>
+  </div>
+</body>
+</html>
