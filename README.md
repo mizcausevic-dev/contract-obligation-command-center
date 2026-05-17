@@ -26,7 +26,7 @@ Enterprise contracts rarely go off track because nobody noticed the clause. They
 ## Local run
 
 ```powershell
-Set-Location "C:\Users\chaus\dev\repos\contract-obligation-command-center"
+cd contract-obligation-command-center
 py -3.11 -m venv .venv
 .\.venv\Scripts\pip.exe install -r requirements.txt
 .\.venv\Scripts\python.exe -m app.main
